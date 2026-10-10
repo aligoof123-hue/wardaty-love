@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#190711">
+<title>إلى وردتي ♥ | 10:10</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+
+:root {
+  --pink: #ff8bb6;
+  --red: #ff416f;
+  --bg: #190711;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Cairo', sans-serif;
+  color: #fff0f6;
+  text-align: center;
+  overflow-x: hidden;
+  background:
+    radial-gradient(ellipse at top, #651c3b 0%, transparent 55%),
+    linear-gradient(145deg, #12050d, #300a20 55%, #11040c);
+}
+
+#stars, #hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .15; transform: scale(.7); }
+  to { opacity: .9; transform: scale(1.5); }
+}
+
+.heart {
+  position: absolute;
+  bottom: -40px;
+  color: #ff699d;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-115vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  width: min(92%, 520px);
+  margin: auto;
+  padding: 35px 0 45px;
+}
+
+.date {
+  display: inline-block;
+  border: 1px solid #ff8db74a;
+  background: #ffffff0a;
+  padding: 7px 20px;
+  border-radius: 50px;
+  color: #ffb1cb;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.clock {
+  margin: 22px 0 0;
+  font-size: clamp(60px, 16vw, 90px);
+  line-height: 1.3;
+  font-weight: 900;
+  color: var(--pink);
+  text-shadow: 0 0 15px #ff477d80, 0 0 45px #ff477d45;
+  direction: ltr;
+}
+
+h1 {
+  font-size: clamp(28px, 7vw, 38px);
+  margin: 8px 0;
+}
+
+.pink { color: var(--pink); }
+
+.subtitle {
+  color: #e7bdce;
+  font-size: 15px;
+  line-height: 2;
+  margin: 15px 0 25px;
+}
+
+.card {
+  border: 1px solid #ff91b52b;
+  background: linear-gradient(145deg, #ffffff0d, #ff5c9410);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 25px 20px;
+  box-shadow: 0 15px 55px #00000020;
+  margin-top: 22px;
+}
+
+.rose {
+  font-size: 68px;
+  display: inline-block;
+  animation: roseBeat 2s infinite;
+}
+
+@keyframes roseBeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: 0;
+  border-radius: 50px;
+  padding: 13px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: .25s;
+}
+
+button:hover { transform: translateY(-2px); }
+
+.primary {
+  background: linear-gradient(110deg, #ff8ab6, #ff426f);
+  color: #310819;
+  box-shadow: 0 6px 25px #ff426f30;
+}
+
+.secondary {
+  color: #ffd9e6;
+  background: #ffffff0b;
+  border: 1px solid #ff91b555;
+  margin-top: 12px;
+}
+
+.hidden { display: none !important; }
+
+#letter {
+  text-align: right;
+  line-height: 2.15;
+  color: #ffe6ef;
+  font-size: 15px;
+}
+
+#typed { white-space: pre-wrap; }
+
+.gift {
+  width: 145px;
+  height: 115px;
+  position: relative;
+  margin: 32px auto 20px;
+  cursor: pointer;
+  animation: giftBounce 2s infinite;
+}
+
+@keyframes giftBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+.gift-box {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  width: 135px;
+  height: 85px;
+  background: linear-gradient(135deg, #ff80ae, #e82f67);
+  border-radius: 8px 8px 12px 12px;
+}
+
+.gift-box::before {
+  content: '';
+  position: absolute;
+  left: 53px;
+  height: 100%;
+  width: 28px;
+  background: #ffe0a9;
+}
+
+.gift-lid {
+  position: absolute;
+  top: 22px;
+  left: 0;
+  width: 145px;
+  height: 27px;
+  background: linear-gradient(90deg, #ff9cbe, #ff548a);
+  border-radius: 7px;
+  z-index: 2;
+  transition: .6s;
+}
+
+.gift-lid::after {
+  content: '🎀';
+  position: absolute;
+  top: -33px;
+  left: 52px;
+  font-size: 40px;
+}
+
+.gift.opened .gift-lid {
+  transform: translateY(-65px) rotate(-15deg);
+}
+
+.gift.opened { animation: none; }
+
+#surprise {
+  line-height: 2;
+}
+
+.signature {
+  color: var(--pink);
+  font-size: 25px;
+  font-weight: 900;
+  margin-top: 8px;
+}
+
+.music-status {
+  font-size: 13px;
+  color: #f3b7cf;
+  margin-top: 12px;
+}
+
+footer {
+  margin-top: 35px;
+  color: #c99aaf;
+  font-size: 13px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star, .heart, .rose, .gift {
+    animation-duration: 8s;
+  }
+}
+</style>
+</head>
+
+<body>
+<div id="stars"></div>
+<div id="hearts"></div>
+
+<main>
+  <div class="date">10 • 10 • 2026</div>
+
+  <div class="clock">10:10</div>
+
+  <h1>إلى <span class="pink">وردتي</span> ♥</h1>
+
+  <p class="subtitle">
+    في لحظات بنحب نوقف فيها الزمن شوية…<br>
+    ونعمل ذكرى تفضل عايشة جوانا.
+  </p>
+
+  <section class="card">
+    <div class="rose">🌹</div>
+    <h2>عندي ليكي حاجة صغيرة</h2>
+    <p class="subtitle">
+      مش هدية تتشال في الإيد،<br>
+      دي حاجة معمولة مخصوص علشانك.
+    </p>
+    <button class="primary" onclick="startStory()">
+      افتحي حكايتنا ♥
+    </button>
+  </section>
+
+  <section id="letterCard" class="card hidden">
+    <div style="font-size:35px">💌</div>
+    <h2 class="pink">رسالة من قلبي</h2>
+    <div id="letter"><span id="typed"></span></div>
+    <button class="secondary" onclick="showGift()">
+      لسه في مفاجأة تانية 🎁
+    </button>
+  </section>
+
+  <section id="giftCard" class="card hidden">
+    <h2>دي ليكي يا وردتي</h2>
+    <p class="subtitle">اضغطي على الهدية وافتحيها بنفسك ❤️</p>
+
+    <div class="gift" id="gift" onclick="openGift()">
+      <div class="gift-box"></div>
+      <div class="gift-lid"></div>
+    </div>
+
+    <div id="surprise" class="hidden">
+      <div style="font-size:48px">💖</div>
+      <h2 class="pink">أمنيتي في اليوم وكل يوم</h2>
+      <p>
+        إن كل يوم جاي يكون فيه سبب يفرّح قلبك،
+        وإنك تفضلي دايمًا شايفة نفسك بعينيّ…
+        حد غالي ومميز ويستاهل كل الحلو.
+      </p>
+      <p>
+        ولو ليا أمنية أطلبها في اللحظة دي…
+      </p>
+      <h3>يا رب احفظها ليا واكتب لنا الخير سوا 🤲🏻♥️</h3>
+      <div class="signature">خيالك ♥️</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>🎶 أغنيتنا إحنا</h3>
+    <p class="subtitle">
+      حبيت أخلي الموسيقى جزء من ذكرى يومنا.
+    </p>
+
+    <!-- ضع ملف song.mp3 بجوار index.html -->
+    <audio id="myMusic" src="song.mp3" preload="auto" loop></audio>
+
+    <button class="primary" id="musicBtn" onclick="toggleMusic()">
+      ▶ شغّلي موسيقانا ♥
+    </button>
+
+    <div id="musicStatus" class="music-status">
+      اضغطي لتشغيل الأغنية 🎵
+    </div>
+  </section>
+
+  <footer>
+    اتعملت بكل الحب علشانك
+    <div class="signature">من خيالك إلى وردتي 🌹</div>
+    <p>10:10 — لحظة صغيرة، ومعنى كبير.</p>
+  </footer>
+</main>
+
+<script>
+// النجوم المتلألئة
+const stars = document.getElementById('stars');
+
+for (let i = 0; i < 65; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+
+  const size = Math.random() * 3 + 1;
+
+  s.style.width = size + 'px';
+  s.style.height = size + 'px';
+  s.style.left = Math.random() * 100 + '%';
+  s.style.top = Math.random() * 100 + '%';
+  s.style.animationDelay = Math.random() * 3 + 's';
+
+  stars.appendChild(s);
+}
+
+// القلوب المتحركة
+function makeHeart() {
+  const h = document.createElement('div');
+
+  h.className = 'heart';
+  h.textContent = ['♥', '♡', '💗', '💕'][
+    Math.floor(Math.random() * 4)
+  ];
+
+  h.style.left = Math.random() * 100 + '%';
+  h.style.fontSize = (14 + Math.random() * 20) + 'px';
+  h.style.animationDuration = (7 + Math.random() * 7) + 's';
+
+  document.getElementById('hearts').appendChild(h);
+
+  setTimeout(() => h.remove(), 15000);
+}
+
+setInterval(makeHeart, 650);
+
+// الرسالة الشخصية — عدّلها زي ما تحب
+const message = `يا وردتي ❤️
+
+عارفة إيه المميز في يوم 10/10؟
+إنه اداني حجة حلوة أقولك فيها كلام
+يمكن بحسه كل يوم، بس مش بعرف أوصفه دايمًا.
+
+أنا مش عامل الموقع ده علشان أبهرِك
+بحاجة كبيرة أو غالية،
+أنا عامله علشان أقولك إنك تستاهلي
+إن حد يفكر فيكي ويخصصلك وقت
+ويعمل حاجة مخصوص علشان يشوفك مبسوطة.
+
+يمكن دي مجرد صفحة على الإنترنت،
+بس كل تفصيلة فيها معمولة بحب،
+وكل قلب فيها بيفكرني إن فيه حد
+وجوده بيخلّي الأيام أحلى.
+
+يا رب أفضل سبب في ضحكتك،
+وتفضلي دايمًا بخير وراحة بال،
+وربنا يكتب لنا الخير ويجمعنا فيه.
+
+كل يوم وإنتِ أمنيتي الحلوةوالشخص 
+الي بيهون عليا كل حاجه بمر بيها
+
+بحبك يا وردتي 🥹❤️`;
+
+let storyStarted = false;
+
+function startStory() {
+  const card = document.getElementById('letterCard');
+
+  card.classList.remove('hidden');
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  if (storyStarted) return;
+  storyStarted = true;
+
+  const typed = document.getElementById('typed');
+  let i = 0;
+
+  function typeNext() {
+    if (i < message.length) {
+      typed.textContent += message.charAt(i);
+      i++;
+      setTimeout(typeNext, 38);
+    }
+  }
+
+  typeNext();
+}
+
+function showGift() {
+  const card = document.getElementById('giftCard');
+
+  card.classList.remove('hidden');
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+let giftOpened = false;
+
+function openGift() {
+  if (giftOpened) return;
+  giftOpened = true;
+
+  document.getElementById('gift').classList.add('opened');
+
+  setTimeout(() => {
+    const surprise = document.getElementById('surprise');
+
+    surprise.classList.remove('hidden');
+    surprise.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+
+    for (let i = 0; i < 35; i++) {
+      setTimeout(makeHeart, i * 70);
+    }
+  }, 550);
+}
+
+// تشغيل وإيقاف ملف الموسيقى الخاص بك
+const music = document.getElementById('myMusic');
+const musicBtn = document.getElementById('musicBtn');
+const musicStatus = document.getElementById('musicStatus');
+
+async function toggleMusic() {
+  if (music.paused) {
+    try {
+      await music.play();
+
+      musicBtn.textContent = 'Ⅱ وقّفي الموسيقى';
+      musicStatus.textContent = 'الموسيقى شغالة مخصوص ليكي ♥';
+    } catch (error) {
+      musicStatus.textContent =
+        'مش قادرين نشغّل الملف. تأكد من وجود song.mp3 بجوار index.html.';
+    }
+  } else {
+    music.pause();
+
+    musicBtn.textContent = '▶ كمّلي موسيقانا ♥';
+    musicStatus.textContent = 'الموسيقى متوقفة مؤقتًا';
+  }
+}
+
+// لو انتهت الأغنية، ستبدأ من جديد تلقائيًا بسبب loop
+music.addEventListener('error', () => {
+  musicStatus.textContent =
+    'تأكد من اسم الملف song.mp3 ومن رفعه مع الموقع.';
+});
+</script>
+</body>
+</html>
